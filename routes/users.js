@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const router = new Router();
 
-router.get("/users", (req, res) => {
+router.get("/", (req, res) => {
   const filePath = path.join(__dirname, "../data/users.json");
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
@@ -11,10 +11,10 @@ router.get("/users", (req, res) => {
     } else {
       res.json(JSON.parse(data));
     }
-  })
+  });
 });
 
-router.get("/users/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   const userId = req.params.id;
   const filePath = path.join(__dirname, "../data/users.json");
 
