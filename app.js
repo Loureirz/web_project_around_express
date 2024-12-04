@@ -16,6 +16,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/", (req, res) => {
+  res.send("Bem-vindo à API!");
+});
+
 app.use(express.json());
 app.use("/users", usersRouter);
 app.use("/cards", cardsRouter);
